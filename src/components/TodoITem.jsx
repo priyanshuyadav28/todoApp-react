@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTodo } from '../contexts';
 
-function TodoITem({todo}) {
+function TodoITem({ todo, darkMode }) {
 
     const [isTodoEditable, setIsTodoEditable] = useState(false)
     const [todoMessage, setTodoMessage] = useState(todo.todo)
@@ -20,7 +20,8 @@ function TodoITem({todo}) {
 
     return (
         <div
-            className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
+            className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${darkMode ? "text-white" : "text-black"}
+            ${todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"} ${darkMode ? "bg-gray-700" : "bg-[#ccbed7]"
                 }`}
         >
             <input
